@@ -45,13 +45,13 @@ const posts = [
 ];
 function page() {
   return (
-    <main className="flex flex-col gap-6 lg:gap-28 ">
+    <main className="flex flex-col gap-6  ">
       <section className="flex flex-col gap-6 lg:flex-row items-center lg:gap-48">
         <div className="flex flex-col gap-10">
           <Image
             width={1080}
             height={1080}
-            className="w-[50vw] h-auto rounded-2xl"
+            className="lg:w-[50vw] h-auto rounded-2xl"
             src="/images/boogie1.jpg"
             alt=""
           />
@@ -88,22 +88,22 @@ function page() {
               <Image
                 width={1080}
                 height={1080}
-                className="w-64 h-52 rounded-2xl"
+                className="lg:w-64 lg:h-52 rounded-2xl"
                 src={item.img}
                 alt=""
               />
-              <h3>
+              <h3 className="text-sm lg:text-xl">
                 Lorem ipsum dolor sit amet
                 <br /> accusamus voluptates.{" "}
               </h3>
-              <p>By John doe</p>
+              <p className="text-sm lg:text-xl font-semibold">By John doe</p>
             </Link>
           ))}
         </div>
       </section>
-      <section className="flex flex-col gap-6 items-center justify-center dark:bg-stone-900 bg-stone-200 rounded-3xl py-12 ">
+      <section className="flex flex-col gap-6 px-4 items-center justify-center dark:bg-stone-900 bg-stone-200 rounded-3xl py-12 ">
         <div className="flex flex-col gap-3">
-          <h2 className="text-3xl font-semibold">Subscribe to get access</h2>
+          <h2 className="lg:text-3xl text-xl font-semibold">Subscribe to get access</h2>
           <p>This content is for subscribers. Subscribe for access today.</p>
         </div>
         <div className=" relative ">
@@ -145,8 +145,8 @@ function page() {
               </h3>
             </div>
           </div>
-          <div className="absolute left-[40%] bottom-[55%]  ">
-            <button className="bg-stone-200 py-2 px-9 rounded-3xl text-stone-800">
+          <div className="absolute lg:left-[42%] lg:bottom-[55%] left-[24%] bottom-[50%] ">
+            <button className="hover:bg-stone-100 dark:hover:bg-stone-950 bg-stone-950 dark:bg-stone-100 text-stone-100 py-2 px-9 rounded-3xl dark:text-stone-800 hover:text-stone-950 dark:hover:text-stone-100">
               subscribe Now
             </button>
           </div>
