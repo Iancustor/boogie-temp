@@ -12,7 +12,7 @@ function LogoComponent() {
         className=" w-8 h-8 rounded-full object-cover"
         alt=""
       />
-      <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+      <span className="self-center text-xl font-semibold whitespace-nowrap ">
         Boogie
       </span>
     </Link>
