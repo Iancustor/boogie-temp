@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import LogoComponent from "./LogoComponent";
+import { Toggle } from "./Toggle";
 
 function Header() {
   return (
@@ -12,21 +12,22 @@ function Header() {
           <div className="flex items-center lg:order-2">
             <Link
               href="#"
-              className="text-stone-200  hover:bg-stone-800 focus:ring-4 focus:ring-stone-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none"
+              className="  dark:hover:bg-stone-800 hover:bg-stone-200 focus:ring-4 focus:ring-stone-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none"
             >
-              Cart{" "}
-              <span className="bg-stone-800 p-0.5 px-1.5 rounded-full ">0</span>
+              Cart <span className=" p-0.5 px-1.5 rounded-full ">0</span>
             </Link>
+            <Toggle />
             <Link
               href="#"
-              className="text-white bg-primary-700  focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+              className=" bg-primary-700  focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-primary-800"
             >
               Log In
             </Link>
+
             <button
               data-collapse-toggle="mobile-menu-2"
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-stone-500 rounded-lg lg:hidden hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-stone-200 dark:text-stone-400 dark:hover:bg-stone-700 dark:focus:ring-stone-600"
+              className="inline-flex items-center p-2 ml-1 text-sm  rounded-lg lg:hidden  focus:outline-none focus:ring-2  "
               aria-controls="mobile-menu-2"
               aria-expanded="false"
             >
@@ -65,7 +66,7 @@ function Header() {
               <li>
                 <Link
                   href="#"
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                  className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
                   aria-current="page"
                 >
                   Home
@@ -74,7 +75,7 @@ function Header() {
               <li>
                 <Link
                   href="#"
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                  className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
                   aria-current="page"
                 >
                   Pricing
@@ -83,7 +84,7 @@ function Header() {
               <li>
                 <Link
                   href="#"
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                  className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
                   aria-current="page"
                 >
                   Contact
@@ -92,7 +93,7 @@ function Header() {
               <li>
                 <Link
                   href="#"
-                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                  className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
                   aria-current="page"
                 >
                   Pages

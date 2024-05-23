@@ -45,7 +45,7 @@ const posts = [
 ];
 function page() {
   return (
-    <main className="flex flex-col gap-6 lg:gap-28 text-stone-100">
+    <main className="flex flex-col gap-6 lg:gap-28 ">
       <section className="flex flex-col gap-6 lg:flex-row items-center lg:gap-48">
         <div className="flex flex-col gap-10">
           <Image
@@ -101,7 +101,7 @@ function page() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col gap-6 items-center justify-center bg-stone-950  rounded-3xl py-12 ">
+      <section className="flex flex-col gap-6 items-center justify-center dark:bg-stone-900 bg-stone-200 rounded-3xl py-12 ">
         <div className="flex flex-col gap-3">
           <h2 className="text-3xl font-semibold">Subscribe to get access</h2>
           <p>This content is for subscribers. Subscribe for access today.</p>
