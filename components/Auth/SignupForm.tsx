@@ -1,17 +1,43 @@
 "use client";
 
-import { signupData } from "@/types/types";
+import { createUser } from "@/app/actions/user";
+import { User, UserRole } from "@prisma/client";
+import { Loader } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
-export default function SignupForm() {
+export default function SignupForm({ role = "USER" }: { role: UserRole }) {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<signupData>();
-  async function onSubmit(data: signupData) {
-    console.log(data);
+  } = useForm<User>();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  async function onSubmit(data: User) {
+    setIsLoading(true);
+
+    data.role = role;
+    try {
+      const user = await createUser(data);
+      const userId = user?.data?.id;
+      console.log(user);
+      if (user) {
+        console.log("User Created successfully");
+        reset();
+        setIsLoading(false);
+        toast.success("Account Created successfully");
+        router.push(`/verifyPage/${userId}`);
+        // console.log(user);
+      } else {
+        // console.log(user.error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <main>
@@ -42,7 +68,7 @@ export default function SignupForm() {
                       name="firstName"
                       type="text"
                       autoComplete="firstName"
-                      placeholder="Custor "
+                      placeholder="John "
                       className="block px-3 w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
                     />
                     {errors.firstName && (
@@ -66,7 +92,7 @@ export default function SignupForm() {
                       name="lastName"
                       type="text"
                       autoComplete="lastName"
-                      placeholder="Developer"
+                      placeholder="Dev"
                       className="block px-3 w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
                     />
                     {errors.lastName && (
@@ -116,7 +142,7 @@ export default function SignupForm() {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      placeholder="Custordev@gmail.com"
+                      placeholder="youremail@gmail.com"
                       className="block px-3 w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
                     />
                     {errors.email && (
@@ -155,12 +181,24 @@ export default function SignupForm() {
               </div>
 
               <div>
-                <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
-                >
-                  Sign up
-                </button>
+                {isLoading ? (
+                  <button
+                    type="submit"
+                    className="flex gap-4 w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
+                  >
+                    Signing up{" "}
+                    <span>
+                      <Loader className="animate-spin" />
+                    </span>
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
+                  >
+                    Sign up
+                  </button>
+                )}
               </div>
             </form>
           </div>

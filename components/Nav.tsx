@@ -148,15 +148,15 @@ export default function NavBar() {
           <Link href="#" className="text-sm font-semibold leading-6 ">
             Features
           </Link>
-          <Link href="#" className="text-sm font-semibold leading-6 ">
-            Marketplace
+          <Link href="/pricing" className="text-sm font-semibold leading-6 ">
+            Pricing
           </Link>
           <Link href="#" className="text-sm font-semibold leading-6 ">
             Company
           </Link>
         </Popover.Group>
       </nav>
-      <div className="flex gap-3 items-center justify-center ">
+      <div className="flex  items-center justify-center ">
         <div className=" lg:flex lg:flex-1 lg:justify-end gap-2 lg:mr-4 ">
           <Link href="/login" className="text-sm font-semibold leading-6 ">
             Log in <span aria-hidden="true">&rarr;</span>

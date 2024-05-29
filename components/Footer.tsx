@@ -3,6 +3,9 @@ import LogoComponent from "./LogoComponent";
 import Link from "next/link";
 
 function Footer() {
+  function getFullYear() {
+    return new Date().getFullYear();
+  }
   return (
     <footer className="p-4  sm:p-6  max-w-full  ">
       <div className="mx-auto max-w-screen-xl">
@@ -146,7 +149,7 @@ function Footer() {
         </div>
         <div className=" flex flex-col py-6 lg:flex-row items-center justify-between">
           <span className="text-sm flex gap-2  sm:text-center ">
-            <span className="flex ">2024</span>
+            <span className="flex "> {getFullYear()}</span>
             <Link href="/" className="hover:underline">
               @Boogie
             </Link>
